@@ -21,16 +21,12 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install virtualenv
-          virtualenv env
-          source env/bin/activate
           pip install -r requirements.txt
-          pip install Flask
-          
+          pip install Flask  # Install Flask as an example
+          pip install flask
+          pip install gTTS
+          pip install gtts
+
       - name: Run the application
         run: |
-          #ls -a
-          #pwd
-          #source ./env/bin/activate  # Activate the virtual environment
           python app.py
-          
