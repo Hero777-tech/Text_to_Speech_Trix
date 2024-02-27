@@ -37,4 +37,5 @@ if __name__ == "__main__":
 
 ## Contributing
 
-Since this is a repository for a tutorial, the code should remain the same as the code that was shown in the tutorial. Any pull requests that don't address security flaws or fixes for language updates will be automatically closed. Style changes, adding libraries, etc are not valid changes for submitting a pull request.
+This site is Hosted on pythonanywhere so I'm providing you the link to that as it don't work in github for hosting
+<botton><a>https://herox.pythonanywhere.com/</a></botton>
