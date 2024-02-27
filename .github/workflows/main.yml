@@ -28,6 +28,5 @@ jobs:
 
       - name: Run the application
         run: |
-          source env/bin/activate
           python app.py
           
