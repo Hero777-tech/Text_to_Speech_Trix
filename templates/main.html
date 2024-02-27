@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech Converter</title>
+    <!-- <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}"> -->
+    <!-- <link rel="stylesheet" href="/static/css/main.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="/static/css/main.css"> -->
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main_update.css') }}?v=2">
+
+
+
+
+</head>
+<body>
+    <div id="txtm">
+        
+    </div>
+    <div class="container glass">
+        <h1>Text to Speech Converter</h1>
+        <textarea id="textToSpeech" rows="10" cols="50" placeholder="Enter text to convert"></textarea>
+        <button id="generateSpeech">Generate Speech</button>
+        <div id="fx">
+            <button id="deleteFile" style="display: none;">Delete File</button>
+            <audio id="audio" controls style="display: none;"></audio>
+        </div>
+        
+    </div>
+    
+    <!-- Audio player with display toggled by JavaScript -->
+     <!-- Add an audio element to play the speech -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const generateSpeechBtn = document.getElementById('generateSpeech');
+            const deleteFileBtn = document.getElementById('deleteFile');
+            const textToSpeechTextarea = document.getElementById('textToSpeech');
+            const audioElement = document.getElementById('audio');
+
+            generateSpeechBtn.addEventListener('click', function () {
+                const text = textToSpeechTextarea.value.trim();
+
+                if (text !== '') {
+                    fetch('/convert_text_to_speech', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            text: text
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        // Play the generated speech file
+                        audioElement.src = data.filename + '?timestamp=' + new Date().getTime();
+                        audioElement.play();
+                        // Toggle the display of the audio player
+                        audioElement.style.display = 'block';
+                        //delete file toggle
+                        deleteFileBtn.style.display = 'block';
+                    })
+                    .catch(error => console.error('Error:', error));
+                } else {
+                    alert('Please enter some text to convert to speech.');
+                }
+            });
+
+            deleteFileBtn.addEventListener('click', function () {
+                fetch('/delete_file', {
+                    method: 'DELETE',
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    // Hide the delete file button after successful deletion
+                    deleteFileBtn.style.display = 'none';
+                    // Hide the audio player
+                    audioElement.style.display = 'none';
+                })
+                .catch(error => console.error('Error:', error));
+            });
+
+        });
+    </script>
+</body>
+</html>
