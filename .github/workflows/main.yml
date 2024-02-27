@@ -29,6 +29,6 @@ jobs:
           
       - name: Run the application
         run: |
-          source env/bin/activate  # Activate the virtual environment
+          env/bin/activate  # Activate the virtual environment
           python app.py
           
