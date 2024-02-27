@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("https://c4.wallpaperflare.com/wallpaper/206/721/148/rain-water-on-glass-bokeh-wallpaper-preview.jpg");
+    background-size:cover; /* Ensure the background covers the entire element */
+    background-repeat: no-repeat; /* Prevent the background from repeating */
+    background-position: center; /* Center the background image */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    box-sizing: border-box; /* Ensure that padding and border are included in the element's total width and height */
+}
+
+
+.container {
+    text-align: center;
+    /* height: 60% ; */
+}
+
+.container h1{
+    color: #feca20;
+    /* background: linear-gradient(135deg, #FFA500 20%, #0000FF 10%); */
+    background: linear-gradient(135deg, rgba(255, 165, 0, 0.4) 30%, rgba(133, 203, 76, 0.4) 70%);
+    border-radius: 200px;
+    border-top-left-radius: 300px;
+}
+
+.container button{
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 1px solid rgba(255, 255, 255, 0.18);
+}
+#generateSpeech{
+    margin-bottom: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 20px;
+    border-radius: 1px solid rgba(255, 255, 255, 0.18);
+}
+#deleteFile{
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 20px;
+    border-radius: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+#fx{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.glass{
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+audio{
+    margin: 5% 0% 5% 0%;
+}
+
+#txtm{
+    color: rgba(red, green, blue, 0.6);
+}
+
+
+textarea {
+    margin: 5%;
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 30px;
+}
+
+button {
+    padding: 10px ;
+    font-size: 16px;
+    background-color: #09f72149;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e00da5;
+    backdrop-filter: blur(10px);
+    background: linear-gradient(135deg, rgba(87, 246, 13, 0.3), rgba(235, 168, 23, 0.5));
+}
